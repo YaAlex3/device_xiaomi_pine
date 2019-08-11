@@ -24,5 +24,5 @@
 /persist		ext4	/dev/block/bootdevice/by-name/persist         flags=backup=1;display="Persist"
 /misc			emmc	/dev/block/bootdevice/by-name/misc
 
-/external_sd 	vfat	/dev/block/mmcblk1p1                          flags=display="External SD";storage;wipeingui;removable;backup=0
+/external_sd            vfat	/dev/block/mmcblk1p1                          flags=display="External SD";storage;wipeingui;removable;backup=0
 #/usb-otg		auto    /dev/block/sda1                               flags=display="USB OTG";storage;removable;backup=0

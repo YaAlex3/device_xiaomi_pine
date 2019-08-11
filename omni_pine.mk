@@ -28,9 +28,7 @@ PRODUCT_PACKAGES += \
 
 # Kernel+
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/kernel:kernel \
-	$(LOCAL_PATH)/recovery.fstab:recovery.fstab \
-	system/timezone/output_data/iana/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
+    system/timezone/output_data/iana/tzdata:recovery/root/system/usr/share/zoneinfo/tzdata
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE	:= pine
@@ -41,8 +39,11 @@ PRODUCT_MANUFACTURER := Xiaomi
 
 BOARD_PROPERTY_OVERRIDES_SPLIT_ENABLED := false
 
-PRODUCT_PROPERTY_OVERRIDES := ro.treble.enabled=true
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.treble.enabled=true \
+    ro.build.system_root_image=true
+
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
-		ro.build.version.security_patch=2099-12-31 \
-		ro.vendor.build.security_patch=2099-12-31
+    ro.build.version.security_patch=2099-12-31 \
+    ro.vendor.build.security_patch=2099-12-31
