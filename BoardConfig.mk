@@ -36,6 +36,10 @@ ifeq ($(HOST_OS),linux)
   endif
 endif
 
+# Display
+TARGET_USES_GRALLOC1 := true
+TARGET_USES_HWC2 := true
+
 # Encryption
 TARGET_HW_DISK_ENCRYPTION := true
 
