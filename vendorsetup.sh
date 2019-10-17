@@ -14,4 +14,4 @@
 # limitations under the License.
 #
 
-add_lunch_combo omni_pine-eng
+add_lunch_combo lineage_pine-userdebug
