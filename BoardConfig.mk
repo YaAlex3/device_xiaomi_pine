@@ -82,5 +82,8 @@ TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_AVB_ENABLE := false
 BOARD_BUILD_DISABLED_VBMETA_IMAGE := true
 
+# VNDK
+BOARD_VNDK_VERSION := current
+
 # Inherit proprietary version
 -include vendor/xiaomi/pine/BoardConfigVendor.mk
