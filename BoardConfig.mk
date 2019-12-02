@@ -16,15 +16,24 @@
 
 # Architecture
 TARGET_ARCH := arm
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := armeabi
+TARGET_CPU_ABI  := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
+TARGET_ARCH_VARIANT := armv8-a
+TARGET_CPU_SMP := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_USES_64_BIT_BINDER := true
+BOARD_KERNEL_SEPARATED_DTBO := true
+BOARD_SYSTEMSDK_VERSIONS :=28
 
 # Board
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := MSM8937
 TARGET_BOARD_PLATFORM := msm8937
+BUILD_BROKEN_ANDROIDMK_EXPORTS :=true
+BUILD_BROKEN_DUP_COPY_HEADERS :=true
+BUILD_BROKEN_DUP_RULES :=true
+BUILD_BROKEN_PHONY_TARGETS :=true
 
 # Dex-preopt
 ifeq ($(HOST_OS),linux)
@@ -61,6 +70,7 @@ TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_KERNEL_SOURCE := kernel/xiaomi/pine
 TARGET_KERNEL_CONFIG := pine-perf_defconfig
 #TARGET_KERNEL_CLANG_COMPILE := true
+TARGET_KERNEL_APPEND_DTB := true
 
 # OTA
 TARGET_OTA_ASSERT_DEVICE := pine
@@ -74,6 +84,8 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 10053729792
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+ENABLE_VENDOR_IMAGE := true
+TARGET_COPY_OUT_VENDOR := vendor
 
 # SELinux
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += device/qcom/sepolicy/private
@@ -83,15 +95,32 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += device/qcom/sepolicy/public
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/etc/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/xiaomi/pine/rootdir/etc/fstab.qcom
 TARGET_USERIMAGES_USE_EXT4 := true
+BOARD_INCLUDE_RECOVERY_DTBO := true
+
+# Sepolicy
+#BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/public
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/generic/private
+
+BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
+    device/qcom/sepolicy/qva/public
+
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += \
+    device/qcom/sepolicy/qva/private
 
 # Verity
-BOARD_AVB_ENABLE := false
-BOARD_BUILD_DISABLED_VBMETA_IMAGE := true
+BOARD_AVB_ENABLE := true
+BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
 
 # VNDK
 BOARD_VNDK_VERSION := current
 
 # Inherit proprietary version
 -include vendor/xiaomi/pine/BoardConfigVendor.mk
+

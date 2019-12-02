@@ -1172,6 +1172,8 @@
         <boolean name="ignore_reset_ut_capability_bool" value="true" />
         <boolean name="carrier_parse_number_on_forward_call_bool" value="true" />
         <boolean name="config_auto_retry_cfu_bool" value="true" />
+        <string name="sim_owned_by_operator_string">CT</string>
+        <string name="config_ims_package_override_string">com.qualcomm.qti.autoregistration</string>
     </carrier_config>
     <carrier_config mcc="460" mnc="04">
         <boolean name="allow_emergency_numbers_in_call_log_bool" value="true" />
@@ -1348,6 +1350,8 @@
         <boolean name="ignore_reset_ut_capability_bool" value="true" />
         <boolean name="carrier_parse_number_on_forward_call_bool" value="true" />
         <boolean name="config_auto_retry_cfu_bool" value="true" />
+        <string name="sim_owned_by_operator_string">CT</string>
+        <string name="config_ims_package_override_string">com.qualcomm.qti.autoregistration</string>
     </carrier_config>
     <carrier_config mcc="460" mnc="12">
         <boolean name="carrier_volte_available_bool" value="true" />
@@ -1370,6 +1374,8 @@
         <boolean name="config_hide_vt_callforward_option" value="true" />
         <boolean name="ignore_reset_ut_capability_bool" value="true" />
         <boolean name="config_auto_retry_cfu_bool" value="true" />
+        <string name="sim_owned_by_operator_string">CT</string>
+        <string name="config_ims_package_override_string">com.qualcomm.qti.autoregistration</string>
     </carrier_config>
     <carrier_config mcc="310" mnc="00">
         <boolean name="carrier_rtt_supported" value="true" />
